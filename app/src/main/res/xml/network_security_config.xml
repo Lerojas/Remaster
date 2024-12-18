@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <debug-overrides>
+        <trust-anchors>
+            <!-- Trust user added CAs while debuggable only -->
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+    <!--    </base-config>-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">200.73.116.40/~angular/</domain>
+    </domain-config>
+</network-security-config>
