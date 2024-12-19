@@ -9,6 +9,6 @@
     </debug-overrides>
     <!--    </base-config>-->
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">200.73.116.40/~angular/</domain>
+        <domain includeSubdomains="true">cachureosyescombros.cl</domain>
     </domain-config>
 </network-security-config>
