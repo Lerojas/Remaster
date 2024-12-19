@@ -1,4 +1,13 @@
 package com.angular.globalretail.ui.splash
 
-class SplashViewState {
-}
+import com.angular.globalretail.core.domain.ConfigViewData
+
+data class SplashViewState (
+    val configViewData: ConfigViewData? = null
+)
+
+internal fun SplashViewState.addConfig(
+    configViewData: ConfigViewData?
+) = this.copy(
+    configViewData = configViewData
+)
