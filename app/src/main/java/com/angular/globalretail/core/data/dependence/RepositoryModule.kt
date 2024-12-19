@@ -1,7 +1,7 @@
 package com.angular.globalretail.core.data.dependence
 
-import com.angular.globalretail.core.data.dataaccess.ISynchronizeRepository
-import com.angular.globalretail.core.data.repository.SynchronizeRepository
+import com.angular.globalretail.core.data.dataaccess.IConfigRepository
+import com.angular.globalretail.core.data.repository.ConfigRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -12,5 +12,5 @@ import dagger.hilt.components.SingletonComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun bindSynchronizerRepository(repositoryImpl: SynchronizeRepository) : ISynchronizeRepository
+    abstract fun bindConfigRepository(repositoryImpl: ConfigRepository) : IConfigRepository
 }

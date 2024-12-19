@@ -1,5 +1,6 @@
 package com.angular.globalretail.core.data.network
 
+import com.angular.globalretail.core.data.network.interceptor.EmptyBodyHttpInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,9 +17,7 @@ import javax.inject.Singleton
 class ApiModule {
 
     private companion object{
-        //const val BASE_URL = "www.angular.cl"
-        const val BASE_URL = "http://200.73.116.40/~angular/"
-
+        const val BASE_URL = "https://cachureosyescombros.cl/"
     }
 
     @Singleton
@@ -30,8 +29,13 @@ class ApiModule {
 
     @Singleton
     @Provides
+    fun providesEmptyBodyHttpInterceptor() = EmptyBodyHttpInterceptor()
+
+    @Singleton
+    @Provides
     fun providesOkHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        emptyBodyHttpInterceptor: EmptyBodyHttpInterceptor
     ): OkHttpClient =
         OkHttpClient
             .Builder()
@@ -39,6 +43,7 @@ class ApiModule {
             .writeTimeout(120L, TimeUnit.SECONDS)
             .readTimeout(120L, TimeUnit.SECONDS)
             .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(emptyBodyHttpInterceptor)
             .build()
 
     @Singleton
